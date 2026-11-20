@@ -109,7 +109,8 @@ window.SC.directions = [
     "img": "img/hatha.jpg",
     "branches": [
       "severnaya",
-      "1-maya"
+      "1-maya",
+      "trudovoy-slavy"
     ]
   },
   {
@@ -198,14 +199,6 @@ window.SC.directions = [
   {
     "slug": "fitbox",
     "name": "Фитбокс",
-    "img": "",
-    "branches": [
-      "trudovoy-slavy"
-    ]
-  },
-  {
-    "slug": "yoga",
-    "name": "Йога",
     "img": "",
     "branches": [
       "trudovoy-slavy"
