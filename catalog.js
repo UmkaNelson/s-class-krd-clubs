@@ -1,5 +1,45 @@
 window.SC.directions = [
   {
+    "slug": "pilates",
+    "name": "Пилатес",
+    "img": "img/pilates.jpg",
+    "branches": [
+      "severnaya",
+      "1-maya",
+      "trudovoy-slavy"
+    ]
+  },
+  {
+    "slug": "stretching",
+    "name": "Стретчинг",
+    "img": "img/stretching.jpg",
+    "branches": [
+      "severnaya",
+      "1-maya",
+      "trudovoy-slavy"
+    ]
+  },
+  {
+    "slug": "womens-health",
+    "name": "Женское здоровье",
+    "img": "img/womens-health.jpg",
+    "branches": [
+      "severnaya",
+      "1-maya",
+      "trudovoy-slavy"
+    ]
+  },
+  {
+    "slug": "hatha",
+    "name": "Хатха-йога",
+    "img": "img/hatha.jpg",
+    "branches": [
+      "severnaya",
+      "1-maya",
+      "trudovoy-slavy"
+    ]
+  },
+  {
     "slug": "sculpt",
     "name": "Скульпт",
     "img": "img/sculpt.jpg",
@@ -23,16 +63,6 @@ window.SC.directions = [
     "slug": "glutes",
     "name": "3Д ягодицы",
     "img": "img/glutes.jpg",
-    "branches": [
-      "severnaya",
-      "1-maya",
-      "trudovoy-slavy"
-    ]
-  },
-  {
-    "slug": "pilates",
-    "name": "Пилатес",
-    "img": "img/pilates.jpg",
     "branches": [
       "severnaya",
       "1-maya",
@@ -66,16 +96,6 @@ window.SC.directions = [
     ]
   },
   {
-    "slug": "stretching",
-    "name": "Стретчинг",
-    "img": "img/stretching.jpg",
-    "branches": [
-      "severnaya",
-      "1-maya",
-      "trudovoy-slavy"
-    ]
-  },
-  {
     "slug": "mfr",
     "name": "МФР",
     "img": "img/mfr.jpg",
@@ -101,26 +121,6 @@ window.SC.directions = [
     "branches": [
       "severnaya",
       "1-maya"
-    ]
-  },
-  {
-    "slug": "hatha",
-    "name": "Хатха-йога",
-    "img": "img/hatha.jpg",
-    "branches": [
-      "severnaya",
-      "1-maya",
-      "trudovoy-slavy"
-    ]
-  },
-  {
-    "slug": "womens-health",
-    "name": "Женское здоровье",
-    "img": "img/womens-health.jpg",
-    "branches": [
-      "severnaya",
-      "1-maya",
-      "trudovoy-slavy"
     ]
   },
   {
