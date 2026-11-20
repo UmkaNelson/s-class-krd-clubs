@@ -1,0 +1,87 @@
+// Общая обвязка страниц: тема, шапка, меню, блок записи, подвал.
+(function () {
+  const S = window.SC;
+
+  const page = location.pathname.split('/').pop() || 'index.html';
+  const NAV = [['directions.html', 'Направления'], ['studios.html', 'Студии']];
+
+  window.lvl = (n) => `<span class="lvl" aria-hidden="true">${[1, 2, 3].map((i) => `<i${i === n ? ' class="on"' : ''}></i>`).join('')}</span>`;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const header = document.createElement('header');
+    header.className = 'pad';
+    header.innerHTML = `
+      <a class="logo" href="index.html">С-Класс</a>
+      <nav class="nav">${NAV.map(([href, label]) => `<a href="${href}"${href === page ? ' class="on"' : ''}>${label}</a>`).join('')}</nav>
+      <div class="head-actions">
+        <button class="btn menu" type="button" id="menuOpen">Меню</button>
+        <a class="btn" href="#booking">Записаться</a>
+      </div>`;
+    document.body.prepend(header);
+
+    const menu = document.createElement('div');
+    menu.className = 'menu-overlay';
+    menu.innerHTML = `
+      <button class="btn close" type="button" id="menuClose">Закрыть</button>
+      <a class="big-link" href="index.html">Главная</a>
+      ${NAV.map(([href, label]) => `<a class="big-link" href="${href}">${label}</a>`).join('')}
+      <a class="big-link" href="#booking">Записаться</a>
+      <a class="small" href="${S.phoneHref}">${S.phone}</a>`;
+    document.body.appendChild(menu);
+    const toggle = (open) => menu.classList.toggle('open', open);
+    document.getElementById('menuOpen').addEventListener('click', () => toggle(true));
+    document.getElementById('menuClose').addEventListener('click', () => toggle(false));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+
+    const cta = document.getElementById('cta');
+    if (cta) {
+      cta.className = 'cta pad';
+      cta.innerHTML = `<h2 class="big">Первое занятие бесплатно</h2><div><p>Администратор поможет выбрать студию, тренировку и время.</p><a class="btn" href="#booking">Подобрать занятие</a></div>`;
+    }
+
+    const footer = document.createElement('footer');
+    footer.className = 'pad';
+    footer.innerHTML = `
+      <div class="row">
+        <span>Краснодар</span>
+        <span class="links"><a href="directions.html">Направления</a><a href="studios.html">Студии и контакты</a><a href="${S.phoneHref}">${S.phone}</a></span>
+      </div>
+      <p class="fine">Информация на сайте не является публичной офертой.</p>
+      <div class="wordmark" aria-hidden="true">С-Класс</div>`;
+    document.body.appendChild(footer);
+
+    // Над фото шапка прозрачная, дальше — с фоном; на внутренних страницах фон всегда
+    const hero = document.getElementById('hero');
+    const onScroll = () => header.classList.toggle('solid', !hero || scrollY > hero.offsetHeight - 70);
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // Видеоотзывы: клик по карточке с data-youtube открывает ролик поверх страницы
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = '<button class="btn close" type="button">Закрыть</button><div class="frame"></div><a class="alt" target="_blank" rel="noopener">Не открывается? Смотреть на YouTube →</a>';
+    document.body.appendChild(modal);
+    const closeModal = () => { modal.classList.remove('open'); modal.querySelector('.frame').innerHTML = ''; };
+    modal.querySelector('.close').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('click', (e) => {
+      const card = e.target.closest('[data-youtube]');
+      if (!card) return;
+      const id = encodeURIComponent(card.dataset.youtube);
+      modal.querySelector('.frame').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Видеоотзыв" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      modal.querySelector('.alt').href = `https://www.youtube.com/watch?v=${id}`;
+      modal.classList.add('open');
+    });
+
+    const script = document.createElement('script');
+    script.src = 'clubs.js';
+    document.body.appendChild(script);
+  });
+})();
