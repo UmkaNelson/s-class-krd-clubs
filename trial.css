@@ -132,3 +132,8 @@
 
 .course-copy p { max-width: 72ch; }
 .course-copy summary { cursor: pointer; font-weight: 700; }
+
+.linked-course { position: relative; isolation: isolate; }
+.linked-course .course-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.linked-course .course-link:focus-visible::after { outline: 3px solid currentColor; outline-offset: -3px; }
+.linked-course a[href="#booking"] { position: relative; z-index: 2; }
