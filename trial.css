@@ -115,3 +115,17 @@
 .trial .item summary, .branch-links + details summary { cursor: pointer; }
 .trial .item details p { margin: 8px 0; }
 .trial .item .arrow { padding-top: 12px; }
+
+.course-intro { padding-top: 100px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 28px; }
+.course-intro img { width: 100%; aspect-ratio: 1.7; object-fit: cover; }
+.course-intro h1 { font-size: clamp(36px,5vw,80px); line-height: 1.02; margin: 16px 0; }
+.course-about { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.course-studios { background: #f6edef; }
+.course-studios select { padding: 8px; font: inherit; }
+.course-studios section { padding: 18px 0; max-width: 72ch; }
+.course-studios h3 { margin: 0 0 10px; }
+.course-studios details { padding: 6px 0; }
+.course-studios summary { cursor: pointer; }
+.course-link { display: inline-block; margin: 6px 0 12px; }
+@media (min-width: 761px) { .trial .course-choices { grid-template-columns: repeat(4,minmax(0,1fr)); } }
+@media (max-width: 760px) { .course-intro, .course-about { grid-template-columns: 1fr; } }

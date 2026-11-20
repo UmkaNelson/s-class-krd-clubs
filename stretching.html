@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Стретчинг в Краснодаре — фитнес-студии С-Класс</title>
+<meta name="description" content="Стретчинг в мини-группах для девушек в Краснодаре. Растяжка и подвижность. Студии на Северной, 1 Мая и Трудовой Славы, особенности занятий и запись на пробное.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="trial.css">
+</head><body class="trial" data-clubs data-direction="stretching">
+<main class="course-page">
+<section class="pad course-intro">
+  <div><a href="directions.html">← Все направления</a><p>Фитнес для девушек · Краснодар</p>
+  <h1>Стретчинг</h1><p>Растяжка и подвижность</p><a class="btn" href="#booking">Записаться на пробное</a></div>
+  <img src="img/stretching.jpg" alt="Занятие в студии С-Класс">
+</section>
+<section class="pad compact course-about">
+  <div><h2>Кому подойдёт</h2><p>Если хотите развивать гибкость и уделить время растяжке.</p></div>
+  <div><h2>Как проходит занятие</h2><p>На тренировке прорабатывают разные группы мышц и подвижность суставов, постепенно увеличивая амплитуду движений.</p></div>
+</section>
+<section class="pad compact course-studios"><h2>Занятия в студиях</h2>
+<label>Выберите студию <select id="branchFilter"><option value="">Все студии</option><option value="severnaya">Северная, 324А</option><option value="1-maya">1 Мая, 188</option><option value="trudovoy-slavy">Трудовой Славы, 6</option></select></label>
+<section data-studio="severnaya"><h3><a href="studio-severnaya.html">Северная, 324А</a></h3><p>Уточните у администратора условия посещения и ограничения перед первым занятием.</p></section>
+<section data-studio="1-maya"><h3><a href="studio-1-maya.html">1 Мая, 188</a></h3><details><summary>Описание · 1 Мая</summary><p>Тренировка, для развития гибкости тела, увеличение эластичности мышц и подвижности суставов. Основным принципом является чередование кратковременного напряжения мышц с их расслаблением. Благодаря регулярным тренировкам по растяжке вы не только сможете в кратчайший срок сесть на шпагат, но и обретёте гибкость всех отделов вашего тела.</p></details><details><summary>Противопоказания · 1 Мая</summary><p>острые инфекционные и воспалительные заболевания, повышенная температура. Свежие травмы мышц, связок, сухожилий и суставов. Недавние операции и период реабилитации без разрешения врача. Острые боли в позвоночнике и суставах. Обострение заболеваний опорно-двигательного аппарата. Выраженная нестабильность суставов и позвоночника. Серьёзные сердечно-сосудистые заболевания, при которых противопоказана физическая нагрузка. Беременность. Любые состояния, при которых врач рекомендовал исключить упражнения на растяжку. Межпозвоночные грыжи и протрузии с выраженными симптомами. Гипермобильность суставов. Варикозное расширение вен с выраженными симптомами. Хронические заболевания позвоночника и суставов.</p></details></section>
+<section data-studio="trudovoy-slavy"><h3><a href="studio-trudovoy-slavy.html">Трудовой Славы, 6</a></h3><details><summary>Описание · Трудовой Славы</summary><p>Тренировка, направленная на развитие гибкости, увеличение амплитуды движений и улучшение эластичности мышц. В программе используются статические и динамические упражнения на растяжение основных групп мышц. Занятие помогает снять напряжение после физических нагрузок, улучшить подвижность суставов и сделать движения более свободными.</p><p>- Развитие гибкости и эластичности мышц;</p><p>- увеличение амплитуды движений;</p><p>- улучшение подвижности суставов;</p><p>- снятие мышечного напряжения;</p><p>- улучшение осанки и координации движений.</p><p>Одежда: удобная, эластичная спортивная форма, носки.</p></details><details><summary>Противопоказания · Трудовой Славы</summary><p>острые инфекционные и воспалительные заболевания, повышенная температура. Острые боли в мышцах и суставах. Недавние травмы, растяжения и операции без разрешения врача. Обострение заболеваний опорно-двигательного аппарата. Воспалительные процессы в суставах. Выраженный болевой синдром при движении. Межпозвоночные грыжи и протрузии с выраженной симптоматикой. Серьёзные сердечно-сосудистые заболевания.</p></details></section>
+<a class="btn" href="#booking">Подобрать время</a></section></main>
+<script src="data.js"></script><script src="catalog.js?v=8ac232c"></script><script src="site.js"></script>
+<script>
+  const selector = document.getElementById('branchFilter');
+  const requested = new URLSearchParams(location.search).get('branch');
+  if (Array.from(selector.options).some(option => option.value === requested)) selector.value = requested;
+  function showStudio() {
+    document.querySelectorAll('[data-studio]').forEach(section => {
+      section.hidden = Boolean(selector.value && section.dataset.studio !== selector.value);
+    });
+  }
+  selector.addEventListener('change', showStudio);
+  showStudio();
+</script></body></html>

@@ -40,7 +40,7 @@
     const link = e.target.closest('a[href="#booking"]');
     if (!link) return;
     e.preventDefault();
-    const direction = link.closest('.item')?.id;
+    const direction = document.body.dataset.direction || link.closest('.item')?.id;
     const chosen = document.getElementById('branchFilter')?.value ?? (branchIndex >= 0 ? branch : '');
     const offered = S.directions.find(d => d.slug === direction)?.branches || [];
     fields.branch.value = chosen || (offered.length === 1 ? offered[0] : '');

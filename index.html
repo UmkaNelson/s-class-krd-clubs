@@ -50,7 +50,10 @@
 </section>
 <section class="pad compact">
   <div class="heading"><h2>С чего начать?</h2><a class="arrow" href="directions.html">Все направления →</a></div>
-  <div class="choices" id="choices"></div>
+  <div class="choices course-choices"><a href="pilates.html"><img src="img/pilates.jpg" alt="" loading="lazy"><small>Для осанки</small><strong>Пилатес →</strong></a>
+<a href="stretching.html"><img src="img/stretching.jpg" alt="" loading="lazy"><small>Для гибкости</small><strong>Стретчинг →</strong></a>
+<a href="womens-health.html"><img src="img/womens-health.jpg" alt="" loading="lazy"><small>Для мышц тазового дна</small><strong>Женское здоровье →</strong></a>
+<a href="hatha.html"><img src="img/hatha.jpg" alt="" loading="lazy"><small>Для баланса</small><strong>Хатха-йога →</strong></a></div>
 </section>
 <section class="pad compact">
   <h2>Отзывы участниц</h2>
@@ -64,11 +67,6 @@
   const S = window.SC;
   document.getElementById('contact').href = S.phoneHref;
   document.getElementById('contact').textContent = 'Позвонить ' + S.phone;
-  const starters = [['pilates', 'Для осанки'], ['stretching', 'Для гибкости'], ['trx', 'Для тонуса']];
-  document.getElementById('choices').innerHTML = starters.map(([slug, goal]) => {
-    const d = S.directions.find(item => item.slug === slug);
-    return `<a href="directions.html#${slug}"><img src="${d.img}" alt="" loading="lazy"><small>${goal}</small><strong>${d.name} →</strong></a>`;
-  }).join('');
   document.getElementById('stories').innerHTML = S.reviews.slice(0, 2).map(r =>
     `<button type="button" data-youtube="${r.youtube}"><strong>${r.name}</strong><span>${r.time}</span><small>▶ Видеоотзыв · ${r.youtube === 'c35_eTmF_s4' ? '1:49' : '3:01'}</small></button>`
   ).join('');

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Пилатес в Краснодаре — фитнес-студии С-Класс</title>
+<meta name="description" content="Пилатес в мини-группах для девушек в Краснодаре. Дыхание и плавные движения. Студии на Северной, 1 Мая и Трудовой Славы, особенности занятий и запись на пробное.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="trial.css">
+</head><body class="trial" data-clubs data-direction="pilates">
+<main class="course-page">
+<section class="pad course-intro">
+  <div><a href="directions.html">← Все направления</a><p>Фитнес для девушек · Краснодар</p>
+  <h1>Пилатес</h1><p>Дыхание и плавные движения</p><a class="btn" href="#booking">Записаться на пробное</a></div>
+  <img src="img/pilates.jpg" alt="Занятие в студии С-Класс">
+</section>
+<section class="pad compact course-about">
+  <div><h2>Кому подойдёт</h2><p>Если хотите укреплять мышцы корпуса и работать над осанкой в спокойном темпе.</p></div>
+  <div><h2>Как проходит занятие</h2><p>На занятии движения сочетают с дыханием. Упражнения направлены на контроль положения тела, устойчивость и координацию.</p></div>
+</section>
+<section class="pad compact course-studios"><h2>Занятия в студиях</h2>
+<label>Выберите студию <select id="branchFilter"><option value="">Все студии</option><option value="severnaya">Северная, 324А</option><option value="1-maya">1 Мая, 188</option><option value="trudovoy-slavy">Трудовой Славы, 6</option></select></label>
+<section data-studio="severnaya"><h3><a href="studio-severnaya.html">Северная, 324А</a></h3><p>Уточните у администратора условия посещения и ограничения перед первым занятием.</p></section>
+<section data-studio="1-maya"><h3><a href="studio-1-maya.html">1 Мая, 188</a></h3><details><summary>Описание · 1 Мая</summary><p>Сочетание глубокой дыхательной практик и плавных и контролируемых движений, направленных на укрепление глубоких мышц всего тела, улучшение гибкости, мобильность суствов, коррекция осанки. Тренировка проходит в умеренном темпе, без ударной нагрузки на суставы.</p></details><details><summary>Противопоказания · 1 Мая</summary><p>острые инфекционные и воспалительные заболевания, повышенная температура. Недавние травмы и операции без разрешения врача. Острые боли в позвоночнике, мышцах и суставах невыясненной причины. Обострение заболеваний опорно-двигательного аппарата. Серьёзные сердечно-сосудистые заболевания, при которых противопоказана физическая нагрузка. Беременность. Выраженные нарушения равновесия и координации, препятствующие безопасному выполнению упражнений. Любые состояния, при которых врач рекомендовал временно исключить физическую активность.</p></details></section>
+<section data-studio="trudovoy-slavy"><h3><a href="studio-trudovoy-slavy.html">Трудовой Славы, 6</a></h3><details><summary>Описание · Трудовой Славы</summary><p>Система упражнений, направленная на укрепление глубоких мышц, развитие гибкости и формирование правильной осанки. Особое внимание уделяется контролю движений, дыханию и точности выполнения упражнений. Тренировка позволяет проработать мышцы всего тела, улучшить баланс и сформировать сильный и функциональный мышечный корсет.</p><p>- Укрепление глубоких мышц живота и спины;</p><p>- формирование правильной осанки;</p><p>- развитие гибкости и подвижности суставов;</p><p>- улучшение координации и баланса;</p><p>- укрепление мышечного корсета и повышение мышечного тонуса.</p><p>Одежда: удобная спортивная форма, носки (желательно с нескользящей подошвой).</p></details><details><summary>Противопоказания · Трудовой Славы</summary><p>острые инфекционные и воспалительные заболевания, повышенная температура. Недавние операции и травмы без разрешения врача. Острые боли в позвоночнике, мышцах и суставах. Обострение заболеваний опорно-двигательного аппарата. Межпозвоночные грыжи и протрузии с выраженными симптомами. Серьёзные сердечно-сосудистые заболевания. Беременность требует индивидуальной адаптации упражнений и согласования с врачом.</p></details></section>
+<a class="btn" href="#booking">Подобрать время</a></section></main>
+<script src="data.js"></script><script src="catalog.js?v=8ac232c"></script><script src="site.js"></script>
+<script>
+  const selector = document.getElementById('branchFilter');
+  const requested = new URLSearchParams(location.search).get('branch');
+  if (Array.from(selector.options).some(option => option.value === requested)) selector.value = requested;
+  function showStudio() {
+    document.querySelectorAll('[data-studio]').forEach(section => {
+      section.hidden = Boolean(selector.value && section.dataset.studio !== selector.value);
+    });
+  }
+  selector.addEventListener('change', showStudio);
+  showStudio();
+</script></body></html>

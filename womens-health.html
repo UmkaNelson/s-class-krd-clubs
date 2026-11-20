@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Женское здоровье в Краснодаре — фитнес-студии С-Класс</title>
+<meta name="description" content="Женское здоровье в мини-группах для девушек в Краснодаре. Дыхание и контроль мышц. Студии на Северной, 1 Мая и Трудовой Славы, особенности занятий и запись на пробное.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="trial.css">
+</head><body class="trial" data-clubs data-direction="womens-health">
+<main class="course-page">
+<section class="pad course-intro">
+  <div><a href="directions.html">← Все направления</a><p>Фитнес для девушек · Краснодар</p>
+  <h1>Женское здоровье</h1><p>Дыхание и контроль мышц</p><a class="btn" href="#booking">Записаться на пробное</a></div>
+  <img src="img/womens-health.jpg" alt="Занятие в студии С-Класс">
+</section>
+<section class="pad compact course-about">
+  <div><h2>Кому подойдёт</h2><p>Если вам интересна мягкая практика с акцентом на мышцы тазового дна, осанку и дыхание.</p></div>
+  <div><h2>Как проходит занятие</h2><p>Упражнения помогают почувствовать работу мышц и согласовать движение с дыханием. Особенности занятий и ограничения можно посмотреть ниже для выбранной студии.</p></div>
+</section>
+<section class="pad compact course-studios"><h2>Занятия в студиях</h2>
+<label>Выберите студию <select id="branchFilter"><option value="">Все студии</option><option value="severnaya">Северная, 324А</option><option value="1-maya">1 Мая, 188</option><option value="trudovoy-slavy">Трудовой Славы, 6</option></select></label>
+<section data-studio="severnaya"><h3><a href="studio-severnaya.html">Северная, 324А</a></h3><p>Уточните у администратора условия посещения и ограничения перед первым занятием.</p></section>
+<section data-studio="1-maya"><h3><a href="studio-1-maya.html">1 Мая, 188</a></h3><details><summary>Описание · 1 Мая</summary><p>Максимально осознанный и комплексный подход к оздоровлению женского организма. Тренировка направлена на укрепление мышц тазового дня и брюшной области,улучшение осанки, нормализации гормонального фона и кровообращения.</p></details><details><summary>Противопоказания · 1 Мая</summary><p>Острые инфекционные и воспалительные заболевания, повышенная температура. Острые воспалительные заболевания органов малого таза. Маточные кровотечения неясного происхождения. Выраженные боли в нижней части живота и области малого таза невыясненной причины. Недавние операции на органах малого таза и брюшной полости без разрешения врача. Обострение хронических заболеваний, препятствующее физической активности. Серьёзные сердечно-сосудистые заболевания, при которых противопоказана физическая нагрузка. Беременность. Любые состояния, при которых врач рекомендовал временно исключить физическую активность.</p></details></section>
+<section data-studio="trudovoy-slavy"><h3><a href="studio-trudovoy-slavy.html">Трудовой Славы, 6</a></h3><details><summary>Описание · Трудовой Славы</summary><p>Специализированная тренировка, направленная на укрепление мышц тазового дна, развитие осознанного контроля над телом и улучшение общего физического самочувствия. В программе используются упражнения на дыхание, мягкую активацию и расслабление мышц, а также элементы функциональной гимнастики.</p><p>- Укрепление и развитие контроля над мышцами тазового дна;</p><p>- улучшение осанки и стабилизации корпуса;</p><p>- развитие правильного дыхания и координации движений;</p><p>- формирование навыка осознанного управления мышцами;</p><p>- поддержание женского здоровья и профилактика функциональных нарушений.</p><p>Одежда: удобная спортивная форма, носки.</p></details><details><summary>Противопоказания · Трудовой Славы</summary><p>острые инфекционные и воспалительные заболевания, повышенная температура. Острые воспалительные и инфекционные заболевания органов малого таза. Кровотечения неясного происхождения. Острый период после операций и родов без разрешения врача. Выраженный болевой синдром в области таза и промежности. Обострение хронических гинекологических заболеваний. Беременность и послеродовой период требуют индивидуального подбора нагрузки и согласования с врачом. Опущение органов малого таза и другие диагностированные нарушения требуют предварительной консультации специалиста.</p></details></section>
+<a class="btn" href="#booking">Подобрать время</a></section></main>
+<script src="data.js"></script><script src="catalog.js?v=8ac232c"></script><script src="site.js"></script>
+<script>
+  const selector = document.getElementById('branchFilter');
+  const requested = new URLSearchParams(location.search).get('branch');
+  if (Array.from(selector.options).some(option => option.value === requested)) selector.value = requested;
+  function showStudio() {
+    document.querySelectorAll('[data-studio]').forEach(section => {
+      section.hidden = Boolean(selector.value && section.dataset.studio !== selector.value);
+    });
+  }
+  selector.addEventListener('change', showStudio);
+  showStudio();
+</script></body></html>
