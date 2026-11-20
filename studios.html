@@ -18,31 +18,58 @@
 <section class="pad page-hero">
   <span class="tag">Краснодар · 3 студии</span>
   <h1 class="big" style="margin-top:14px">Студии</h1>
-  <div class="list" id="list"></div>
+  <div class="list" id="list">
+    <article class="st-card">
+      <div>
+
+        <h2 class="big"><a href="studio-severnaya.html">Северная</a></h2>
+      </div>
+      <div>
+        <dl class="info">
+          <dt>Адрес</dt><dd>Краснодар, ул. Северная, 324А</dd>
+          <dt>Телефон</dt><dd><a href="tel:+79182648551">+7 (918) 264-85-51</a></dd>
+
+
+        </dl>
+        <a class="arrow" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D0%BD%D0%B0%D1%8F%2C%20324%D0%90" target="_blank" rel="noopener">Показать на карте →</a>
+      </div>
+    </article>
+    <article class="st-card">
+      <div>
+
+        <h2 class="big"><a href="studio-1-maya.html">1 Мая</a></h2>
+      </div>
+      <div>
+        <dl class="info">
+          <dt>Адрес</dt><dd>Краснодар, ул. 1 Мая, 188</dd>
+          <dt>Телефон</dt><dd><a href="tel:+79182648551">+7 (918) 264-85-51</a></dd>
+
+
+        </dl>
+        <a class="arrow" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%201%20%D0%9C%D0%B0%D1%8F%2C%20188" target="_blank" rel="noopener">Показать на карте →</a>
+      </div>
+    </article>
+    <article class="st-card">
+      <div>
+
+        <h2 class="big"><a href="studio-trudovoy-slavy.html">Трудовой Славы</a></h2>
+      </div>
+      <div>
+        <dl class="info">
+          <dt>Адрес</dt><dd>Краснодар, ул. Трудовой Славы, 6</dd>
+          <dt>Телефон</dt><dd><a href="tel:+79182648551">+7 (918) 264-85-51</a></dd>
+
+
+        </dl>
+        <a class="arrow" href="https://yandex.ru/maps/?text=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C%20%D1%83%D0%BB.%20%D0%A2%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%A1%D0%BB%D0%B0%D0%B2%D1%8B%2C%206" target="_blank" rel="noopener">Показать на карте →</a>
+      </div>
+    </article></div>
 </section>
 
 <div id="cta"></div>
 
-<script src="data.js"></script>
+<script src="data.js"></script><script src="catalog.js"></script>
 <script src="site.js"></script>
-<script>
-  const S = window.SC;
-  document.getElementById('list').innerHTML = S.studios.map((s, i) => `
-    <article class="st-card reveal">
-      <div>
-        ${document.body.classList.contains('trial') ? '' : `<span class="tag">${String(i + 1).padStart(2, '0')} · С-Класс</span>`}
-        <h2 class="big">${s.name}</h2>
-      </div>
-      <div>
-        <dl class="info">
-          <dt>Адрес</dt><dd>Краснодар, ${s.addr}</dd>
-          <dt>Телефон</dt><dd><a href="${s.phone ? 'tel:' + s.phone.replace(/[^+0-9]/g, '') : S.phoneHref}">${s.phone || S.phone}</a></dd>
-          ${s.hours ? `<dt>Часы работы</dt><dd>${s.hours}</dd>` : ''}
-          ${s.legal ? `<dt>Юридическое лицо</dt><dd>${s.legal}</dd>` : ''}
-        </dl>
-        <a class="arrow" href="https://yandex.ru/maps/?text=${encodeURIComponent('Краснодар, ' + s.addr)}" target="_blank" rel="noopener">Показать на карте →</a>
-      </div>
-    </article>`).join('');
-</script>
+
 </body>
 </html>

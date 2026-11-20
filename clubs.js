@@ -2,21 +2,8 @@
 (() => {
   const S = window.SC;
   const branches = ['severnaya', '1-maya', 'trudovoy-slavy'];
-  const branchUrl = id => 'studio-' + id + '.html';
   const branch = document.body.dataset.branch || new URLSearchParams(location.search).get('branch');
   const branchIndex = branches.indexOf(branch);
-  const locations = document.querySelector('#locations');
-  if (locations) {
-    locations.innerHTML = S.studios.map((studio, i) =>
-      `<a href="${branchUrl(branches[i])}"><strong>${studio.addr}</strong><small>О студии →</small></a>`
-    ).join('');
-  }
-  document.querySelectorAll('.st-card h2').forEach((title, i) => {
-    const link = document.createElement('a');
-    link.href = branchUrl(branches[i]);
-    link.textContent = title.textContent;
-    title.replaceChildren(link);
-  });
   document.querySelectorAll('a[data-booking], .item a[href="#cta"]').forEach(link => link.href = '#booking');
   const dialog = document.createElement('dialog');
   dialog.className = 'club-booking';
@@ -37,7 +24,14 @@
   const form = dialog.querySelector('form');
   const fields = form.elements;
   S.studios.forEach((s, i) => fields.branch.add(new Option(s.addr, branches[i])));
-  S.directions.forEach(d => fields.direction.add(new Option(d.name, d.slug)));
+  function updateDirections() {
+    const previous = fields.direction.value;
+    fields.direction.replaceChildren(new Option('Помогите выбрать', ''));
+    const available = S.directions.filter(d => !fields.branch.value || d.branches.includes(fields.branch.value));
+    available.forEach(d => fields.direction.add(new Option(d.name, d.slug)));
+    fields.direction.value = available.some(d => d.slug === previous) ? previous : '';
+  }
+  fields.branch.addEventListener('change', updateDirections);
   const confirmation = dialog.querySelector('.confirmation');
   const close = dialog.querySelector('.dismiss');
   close.onclick = () => dialog.close();
@@ -46,8 +40,12 @@
     const link = e.target.closest('a[href="#booking"]');
     if (!link) return;
     e.preventDefault();
-    fields.branch.value = branchIndex >= 0 ? branch : '';
-    fields.direction.value = link.closest('.item')?.id || '';
+    const direction = link.closest('.item')?.id;
+    const chosen = document.getElementById('branchFilter')?.value ?? (branchIndex >= 0 ? branch : '');
+    const offered = S.directions.find(d => d.slug === direction)?.branches || [];
+    fields.branch.value = chosen || (offered.length === 1 ? offered[0] : '');
+    updateDirections();
+    fields.direction.value = direction || '';
     confirmation.hidden = true;
     form.hidden = false;
     dialog.showModal();

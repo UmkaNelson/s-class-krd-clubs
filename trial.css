@@ -106,3 +106,12 @@
 .membership-price span { display: inline-block; font-size: 0.5em; font-weight: 500; }
 .payment-methods { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .payment-methods li { display: inline-flex; align-items: center; gap: 7px; padding: 8px 12px; background: white; font-size: 14px; }
+
+.trial .filters select { padding: 8px; font: inherit; max-width: 100%; }
+.trial .item .text-cover { aspect-ratio: auto; background: #f8d2df; }
+.trial .item .text-cover h2 { position: static; color: var(--ink); background: none; padding: 20px; }
+.trial .item [data-place] { width: 100%; }
+.trial .item details { padding: 6px 0; }
+.trial .item summary, .branch-links + details summary { cursor: pointer; }
+.trial .item details p { margin: 8px 0; }
+.trial .item .arrow { padding-top: 12px; }
