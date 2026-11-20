@@ -164,6 +164,14 @@ window.SC.directions = [
     ]
   },
   {
+    "slug": "split",
+    "name": "Шпагат",
+    "img": "img/split.jpg",
+    "branches": [
+      "1-maya"
+    ]
+  },
+  {
     "slug": "stretch-mfr",
     "name": "МФР + стретчинг",
     "img": "img/split.jpg",
