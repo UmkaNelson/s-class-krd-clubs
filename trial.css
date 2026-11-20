@@ -100,8 +100,8 @@
   to { stroke-dashoffset: -100; }
 }
 
-.membership { margin-top: clamp(32px, 5vw, 64px); padding: clamp(20px, 3vw, 40px); background: #f6edeF; }
-.membership h3 { margin: 0; font-size: 20px; }
+.membership { margin: clamp(32px, 5vw, 64px) clamp(18px, 4vw, 56px) 0; padding: clamp(20px, 3vw, 40px); background: #f6edeF; }
+.membership h2 { margin: 0; font-size: 20px; }
 .membership-price { margin: 6px 0 20px; font-size: clamp(30px, 4vw, 56px); font-weight: 700; line-height: 1.15; }
 .membership-price span { display: inline-block; font-size: 0.5em; font-weight: 500; }
 .payment-methods { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
